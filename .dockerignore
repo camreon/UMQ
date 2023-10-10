@@ -5,5 +5,4 @@ project
 dist
 etc
 bin
-config
-umq-web
+fly.toml
