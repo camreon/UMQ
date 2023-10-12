@@ -1,12 +1,12 @@
 from __future__ import unicode_literals
 
-from flask import Flask
+from flask import Flask, render_template_string
 from flask_injector import FlaskInjector
 from injector import threadlocal
-from umq.config import get_env_config
-from umq.db import db
-from umq.views import bp
-from umq.stream_service import StreamService, MockStreamService
+from app.config import get_env_config
+from app.db import db
+from app.views import bp
+from app.stream_service import StreamService, MockStreamService
 
 
 def create_app(test_config=None):
@@ -32,8 +32,9 @@ def create_app(test_config=None):
 
     app.register_blueprint(bp)
 
-    # make "index" point at "/", which is handled by "views.index"
-    app.add_url_rule("/", endpoint="index")
+    @app.route('/')
+    def health_check():
+        return render_template_string('ok')
 
     def bind_stream_service(binder):
         binder.bind(

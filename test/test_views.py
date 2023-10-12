@@ -1,8 +1,8 @@
 import json
 from flask_testing import TestCase
 from unittest import mock
-from umq.app import create_app
-from umq.db import db, Track, Playlist
+from app.app import create_app
+from app.db import db, Track, Playlist
 
 
 class ViewsTest(TestCase):

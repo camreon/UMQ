@@ -1,4 +1,4 @@
-# react app setup
+# react build
 FROM node:20 as build 
 
 WORKDIR /umq-web
@@ -7,12 +7,14 @@ RUN yarn install
 COPY /umq-web .
 RUN yarn run build
 
-# flask app setup
-FROM tiangolo/uwsgi-nginx:python3.10
-COPY ./config/nginx.conf.erb /etc/nginx/nginx.conf
+
+# nginx and flask setup
+FROM tiangolo/uwsgi-nginx-flask:python3.10
+
 COPY --from=build /umq-web/build /usr/share/nginx/html
 
-COPY umq/requirements.txt requirements.txt
-RUN pip install -r requirements.txt
+COPY app/requirements.txt /app/requirements.txt
+RUN pip install -r /app/requirements.txt
 
-COPY ./umq /app
+COPY /app/alembic.ini .
+COPY ./app /app

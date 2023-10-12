@@ -1,7 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import SQLAlchemyError
 
-from umq.log import log
+from app.log import log
 
 
 db = SQLAlchemy()

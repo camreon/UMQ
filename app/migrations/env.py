@@ -18,7 +18,7 @@ import os
 import sys
 sys.path.append(os.getcwd())
 
-from umq import db
+from app import db
 
 target_metadata = db.db.Model.metadata
 

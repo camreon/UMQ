@@ -1,12 +1,10 @@
-import random
-
 from flask import (
     abort, Blueprint, flash, jsonify, request, render_template, redirect
 )
-from umq.db import Track, Playlist
-from umq.log import log
-from umq.errors import JsonException
-from umq.stream_service import StreamService
+from app.db import Track, Playlist
+from app.log import log
+from app.errors import JsonException
+from app.stream_service import StreamService
 
 
 bp = Blueprint("index", __name__, url_prefix='/api')

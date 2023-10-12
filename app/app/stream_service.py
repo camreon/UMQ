@@ -2,7 +2,7 @@ import abc
 import logging
 import youtube_dl
 
-from umq.log import log
+from app.log import log
 
 
 class GenericStreamService(object):
