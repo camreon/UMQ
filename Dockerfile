@@ -17,5 +17,10 @@ COPY --from=build /umq-web/build /usr/share/nginx/html
 COPY app/requirements.txt /app/requirements.txt
 RUN pip install -r /app/requirements.txt
 
+RUN rm /etc/uwsgi/uwsgi.ini
+COPY /app/uwsgi.ini /etc/uwsgi/uwsgi.ini 
+ENV UWSGI_CHEAPER 0
+ENV UWSGI_PROCESSES 1
+
 COPY /app/alembic.ini .
 COPY ./app /app
