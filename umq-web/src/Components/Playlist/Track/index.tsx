@@ -38,7 +38,7 @@ export class Track extends Component<TrackProps & Props> {
         className={trackClass} 
         onClick={this.props.handleOnClick}
       >
-        <td>{this.props.number}</td>
+        <td>{isPlaying ? <span className="fa fa-play"></span> : this.props.number}</td>
         <td className="track">
           <div className="track-title" title={this.props.title}>{this.props.title}</div>
           <div className="track-artist" title={this.props.artist}> {this.props.artist}</div>

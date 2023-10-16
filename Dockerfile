@@ -3,6 +3,7 @@ FROM node:20 as build
 
 WORKDIR /umq-web
 COPY /umq-web/package*.json ./
+COPY /umq-web/yarn.lock ./
 RUN yarn install
 COPY /umq-web .
 RUN yarn run build
