@@ -18,6 +18,5 @@ heroku
 
 ## TODO
 
-- next/prev track controls
-- analytics, especially for errors
-- loading states
+- more error handling 
+- frontend design

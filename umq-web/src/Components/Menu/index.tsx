@@ -16,7 +16,7 @@ export default class Menu extends Component<Props, State> {
     input: ''
   };
 
-  supportedSitesUrl: string = "https://github.com/rg3/youtube-dl/blob/master/docs/supportedsites.md";
+  supportedSitesUrl: string = "https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md";
 
   handleOnChange = (e: any) => this.setState({ input: e.target.value });
 

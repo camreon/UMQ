@@ -1,6 +1,6 @@
 import abc
 import logging
-import youtube_dl
+from yt_dlp import YoutubeDL, utils
 
 from app.log import log
 
@@ -70,10 +70,10 @@ class StreamService(GenericStreamService):
 
         log.info('Getting track info from youtube-dl for ' + url)
 
-        with youtube_dl.YoutubeDL(options) as ydl:
+        with YoutubeDL(options) as ydl:
             try:
                 info = ydl.extract_info(url, download=False)
-            except youtube_dl.utils.YoutubeDLError as e:
+            except utils.YoutubeDLError as e:
                 raise
 
         if 'entries' in info:
