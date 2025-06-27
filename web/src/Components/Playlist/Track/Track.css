@@ -1,0 +1,41 @@
+/* Custom styles for Track component */
+.track-item {
+  transition: all 0.2s ease;
+}
+
+.track-item:hover {
+  background-color: #f9fafb;
+}
+
+.track-item.playing {
+  background-color: #eff6ff;
+  border-left: 4px solid #3b82f6;
+}
+
+.track-item.playing:hover {
+  background-color: #dbeafe;
+}
+
+.track-item.loading {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.track-actions {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.track-item:hover .track-actions {
+  opacity: 1;
+}
+
+.track-item.playing .track-actions {
+  opacity: 1;
+}
+
+/* Custom focus styles for accessibility */
+.track-item button:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}

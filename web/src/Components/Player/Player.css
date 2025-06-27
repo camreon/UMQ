@@ -1,0 +1,25 @@
+.player-container audio::-webkit-media-controls-current-time-display,
+.player-container audio::-webkit-media-controls-time-remaining-display {
+  color: #374151;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.player-container button {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.player-container button:hover {
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+}
+
+.player-container audio::-webkit-media-controls-panel {
+  background: #e2e8f0;
+  border-radius: 12px;
+  padding: 8px 12px;
+}
+
+.player-container audio::-webkit-media-controls-play-button:hover {
+  transform: scale(1.05);
+}

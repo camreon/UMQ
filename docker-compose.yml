@@ -1,0 +1,35 @@
+services:
+  web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - app
+    environment:
+      NODE_ENV: development
+    volumes:
+      - ./web:/web
+      - /web/node_modules
+
+  app:
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - postgres
+    environment:
+      FLASK_DEBUG: 1
+    volumes:
+      - ./app:/app
+    env_file: .env
+
+  postgres:
+    image: library/postgres:15.4
+    environment:
+      POSTGRES_PASSWORD: "umq"
+      POSTGRES_DB: "umq"
+    ports:
+      - "5432:5432"

@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 
 from flask import Flask, render_template_string
 from flask_injector import FlaskInjector
+from flask_cors import CORS
 from injector import threadlocal
 from app.config import get_env_config
 from app.db import db
@@ -13,6 +14,7 @@ def create_app(test_config=None):
     """Create and configure an instance of the Flask application."""
     app = Flask(__name__, instance_relative_config=True)
 
+    cors = CORS(app, origins=["http://localhost:3000", "https://bigplaylist.club/"])
     env = get_env_config()
 
     if test_config:
