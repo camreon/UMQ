@@ -1,6 +1,7 @@
 import { TrackProps } from '../interfaces';
 
-const API_URL = 'http://localhost/api';
+const BASE_URL = import.meta.env.DEV ? 'http://localhost' : '';
+const API_URL = `${BASE_URL}/api`;
 
 async function assertOk(response: Response) {
   if (!response.ok) {

@@ -44,6 +44,8 @@ const App: React.FC = () => {
   };
 
   const handlePlayTrack = (trackIndex: number) => {
+    if (trackIndex === currentIndex) return;
+    
     dispatch(setCurrentIndex(trackIndex));
     const track = tracks[trackIndex];
     dispatch(FETCH_TRACK({ playlistId, trackId: track.id }));

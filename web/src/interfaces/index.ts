@@ -36,10 +36,11 @@ export interface PlaylistProps {
   deleteTrack: (track_id: number) => void;
 }
 
-export interface TrackComponentProps extends TrackProps {
+export interface TrackComponentProps {
   isLoading: boolean;
   isPlaying: boolean;
-  number: number;
+  index: number;
+  track: TrackProps;
   handleOnClick: () => void;
   handleOnDelete: () => void;
 }

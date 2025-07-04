@@ -21,8 +21,8 @@
     "web-vitals": "^3.5.0"
   },
   "scripts": {
-    "dev": "PORT=3000 tsc && vite --host",
-    "build": "tsc && vite build",
+    "dev": "VITE_ENV=development PORT=3000 tsc && vite --host",
+    "build": "VITE_ENV=production vite build",
     "preview": "vite preview",
     "test": "vitest"
   },
